@@ -23,11 +23,11 @@ export async function getCeldasById(req, res) {
     try{
         const celda = await Celda.findById(req.params.id);
         if(!celda) {
-            return res.status.(400).json({msg: 'Celda no encontrada'});
+            return res.status(400).json({msg: 'Celda no encontrada'});
         }
         res.json(celda);
     }catch(error){
-        res.status(500.json({msg: 'Error al obtener la celda', error}));
+        res.status(500).json({msg: 'Error al obtener la celda', error});
     }
     
 }
@@ -67,6 +67,7 @@ export async function deleteCelda(req, res) {
     try {
         await Celda.findByIdAndDelete(req.params.id);
     } catch (error) {
+        
         msg = 'Hubo un problema al eliminar';
     }
     res.json({ msg: msg });
