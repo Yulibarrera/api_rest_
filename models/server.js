@@ -8,7 +8,7 @@ class Server{
     this.app = express()
     this.listen()
     this.dbConnection()
-    this.pathCelda = "/api/parking"
+    this.pathCelda = "/"
     this.route()
     
     }

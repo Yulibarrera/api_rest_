@@ -4,7 +4,7 @@ import {getCelda, getCeldasByEstado, getCeldasById, postCelda, putCelda, deleteC
 const celdaRouter = Router();
 
 
-celdaRouter.get('/', getCelda); 
+celdaRouter.get('/cell', getCelda); 
 celdaRouter.get('/:id', getCeldasById); 
 celdaRouter.get('/estado/:estado', getCeldasByEstado); 
 celdaRouter.post('/', postCelda);
