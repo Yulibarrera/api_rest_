@@ -85,7 +85,6 @@ export async function parkVehicle(req, res) {
         celda.estado = 'not available';
         celda.plateVehicle = plateVehicle;
         celda.entry_date = new Date();
-        celda.departure_date = null;
         celda.pin = null;
 
         await celda.save();
@@ -113,7 +112,13 @@ export async function goOutVehicle(req, res) {
         celda.pin = null;
 
         await celda.save();
-        res.json({ message: 'The vehicle has left', valor_a_pagar });
+
+        return res.json({
+            message: 'The vehicle has left',
+            fecha_entrada: celda.entry_date,
+            fecha_salida: celda.departure_date,
+            valor_a_pagar
+        });
     } catch (error) {
         res.status(500).json({ message: 'Error when registering vehicle exit', error });
     }
